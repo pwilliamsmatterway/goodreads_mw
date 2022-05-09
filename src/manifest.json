@@ -1,0 +1,12 @@
+{
+  "manifest_version": 2,
+  "identifier": "@dev/goodreads-test",
+  "version": "0.0.1",
+  "name": "Goodreads Test",
+  "description": "Description of Goodreads Test.",
+  "icon": "icon.png",
+  "background_script": "background.js",
+  "content_script": "content.js",
+  "matcher_script": "matcher.js",
+  "matcher_api_version": 2
+}
