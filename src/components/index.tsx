@@ -3,3 +3,4 @@ export * from 'library/components';
 
 // Re-export your components here
 // export * from './MyComponent';
+export * from './selectGenre'
