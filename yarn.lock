@@ -1427,6 +1427,13 @@
   resolved "https://registry.matterway.io/@matterway%2fjs-core-with-cleanup/-/js-core-with-cleanup-2.0.0.tgz#d3ed7633cceb80d26a43d766a2b4764f768c51d0"
   integrity sha512-DYDnoZsp8K+r9SaWUzDu3wEPlyQ5LOzeKAPSpYZeudRuBJfssW/atLsF5XB53ID4wINh09Ea5mSlojnUBvzG8A==
 
+"@matterway/puppeteer-debug@^2.1.7":
+  version "2.1.7"
+  resolved "https://registry.matterway.io/@matterway%2fpuppeteer-debug/-/puppeteer-debug-2.1.7.tgz#9ea9c162db8c05789203907c58035aa2314cbf00"
+  integrity sha512-icZmp9r40AToMpP+VkVpenGkYmJ1D03NF4XrAlU8bNR3B7vOHWRVjRYKmKOasIu/+RrIfvtuHFu2PHwxHJC6JQ==
+  dependencies:
+    "@types/puppeteer-core" "^5.4.0"
+
 "@matterway/puppeteer-for-chrome@^5.0.0":
   version "5.0.0"
   resolved "https://registry.matterway.io/@matterway%2fpuppeteer-for-chrome/-/puppeteer-for-chrome-5.0.0.tgz#37f127439c8f871a16ba8ad6dd2ee8218ac54bd6"

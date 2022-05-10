@@ -7,7 +7,7 @@ export async function switchToPhysicalMediumStep(ctx: Context) {
     console.log('step: switchToPhysicalMediumStep');
     const pause = useSkillDebugger(ctx.signal);
     const { browser, page, render } = ctx;
-    const AMAZON_BASE_URL = 'https://www.amazon.com'
+    const AMAZON_BASE_URL = 'https://www.amazon.de'
 
     const isNonPhysicalEdition = async (): Promise<Boolean | undefined> => {
         try {
@@ -32,12 +32,10 @@ export async function switchToPhysicalMediumStep(ctx: Context) {
         }
 
     }
-    // Write your code here. Remove when done
     try {
         if (await isNonPhysicalEdition()) {
             await switchToPhysicalEdition();
         }
-        await page.waitForNavigation()
         return await addToCartStep(ctx);
     } catch (error) {
         console.log(error)
