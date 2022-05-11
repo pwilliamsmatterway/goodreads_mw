@@ -14,12 +14,12 @@ export async function getRandomBookURLStep(
     // This might take a while. let's show progress, for good measure
     await showProgress(ctx, 'Starting background tasks...');
 
+
     // We connect to agent
     const agent = await connectToAgent(ctx.signal, {
         createAgentConnection: useAgentConnectionFactory(),
-        //     browserLocationPathForDebugging:
-        //       '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
-        //   
+            // browserLocationPathForDebugging:
+            //   '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
     }
     );
     const { genreURL } = data

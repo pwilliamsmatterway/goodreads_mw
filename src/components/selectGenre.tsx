@@ -1,4 +1,4 @@
-import { Bubble, Choice } from '@matterway/assistant-design-system/lib/src';
+import { Bubble, Choice, TaskProgress } from '@matterway/assistant-design-system/lib/src';
 import * as React from 'react';
 import styled from 'styled-components';
 

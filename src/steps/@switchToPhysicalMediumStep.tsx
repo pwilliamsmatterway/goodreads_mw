@@ -24,7 +24,7 @@ export async function switchToPhysicalMediumStep(ctx: Context) {
 
     const switchToPhysicalEdition = async (): Promise<void> => {
         try {
-            let [button] = await page.$x("//span[text()[contains(.,'Hardcover')  or contains(.,'Paperback')]]")
+            let [button] = await page.$x("//span[text()[contains(.,'Gebundenes Buch')  or contains(.,'Taschenbuch')]]")
             let text = await page.evaluate(span => span.parentElement.getAttribute('href'), button);
             await page.goto(`${AMAZON_BASE_URL}${text}`);
         } catch (e) {
