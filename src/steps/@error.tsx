@@ -1,18 +1,17 @@
-import {BackgroundReact as React, getContentComponentsProxy} from '@matterway/background-react';
-import type {Context} from 'library/context';
+import { BackgroundReact as React, getContentComponentsProxy } from '@matterway/background-react';
+import type { Context } from 'library/context';
 
-const {
-  Bubble,
-  Result,
-} = getContentComponentsProxy<typeof import('components')>();
+const { Bubble, Result } = getContentComponentsProxy<typeof import('components')>();
 
-
-export async function handleErrorStep(ctx: Context, data: {
-  err: Error,
-}) {
+export async function handleErrorStep(
+  ctx: Context,
+  data: {
+    err: Error;
+  },
+) {
   console.log('Step: handleErrorStep', data);
 
-  await ctx.render(resolve => (
+  await ctx.render((resolve) => (
     <Bubble>
       <Result
         resolve={resolve}

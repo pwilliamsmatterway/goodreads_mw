@@ -1,0 +1,52 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:react/recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "no-useless-escape": 0,
+      "no-var": 1,
+      "prefer-const": 1,
+      "react/prop-types": 0,
+      "no-async-promise-executor": 0,
+      "@typescript-eslint/no-extra-semi": 1,
+      "no-console": 0,
+      "@typescript-eslint/ban-ts-comment": 0,
+      "@typescript-eslint/no-non-null-assertion": 0,
+      "react/jsx-props-no-spreading": ["off"],
+      "@typescript-eslint/no-empty-function": "error",
+      "@typescript-eslint/no-duplicate-imports": "error",
+      "@typescript-eslint/no-shadow": 0,
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error"]
+    },
+    "ignorePatterns": [
+      "/**/*.test.js",
+      "/**/*.test.ts",
+      "node_modules/",
+      "build/",
+      "dist/",
+      "out/",
+      "/**/node_modules/"
+    ]
+  }
+  

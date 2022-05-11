@@ -1,43 +1,33 @@
-import {connectToAgent} from '@matterway/agent-puppeteer-client/lib';
-import {useAgentConnectionFactory} from '@matterway/background-hooks';
-import { pauseToDebug } from '@matterway/skill-debugger';
+import { connectToAgent } from '@matterway/agent-puppeteer-client/lib';
+import { useAgentConnectionFactory } from '@matterway/background-hooks';
 import { Context } from 'library/context';
-import {showProgress} from 'library/progress';
+import { showProgress } from 'library/progress';
+import { GOODREADS_BASE_URL, GOODREADS_BEST_BOOKS_URL } from 'shared/constants';
+import { selectors } from '../shared/selectors';
 
-export async function getGenreSelectionListStep(
-  ctx: Context,
-) {
-  // ...
-
-  // This might take a while. let's show progress, for good measure
+export async function getGenreSelectionListStep(ctx: Context) {
   await showProgress(ctx, 'Starting background tasks...');
 
-  // We connect to agent
   const agent = await connectToAgent(ctx.signal, {
     createAgentConnection: useAgentConnectionFactory(),
-    // browserLocationPathForDebugging:
-    //   '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge',
-}
-);
-const page = await agent.newPage();
+  });
+  const page = await agent.newPage();
   console.log('step: getGenreSelectionListStep');
-  await page.goto(`https://www.goodreads.com/choiceawards/best-books-2021`)
-  const genreOptions = await page.evaluate(() => {
+  await page.goto(`${GOODREADS_BASE_URL}${GOODREADS_BEST_BOOKS_URL}`);
+  const genreOptions = await page.evaluate((selectors) => {
     let results: any[] = [];
-    let items: NodeList = document.querySelectorAll('.category');
+    let items: NodeList = document.querySelectorAll(selectors.GOODREADS_CATEGORY_SELECTOR);
     if (items) {
       items.forEach((item: any) => {
         results.push({
-          value: item.querySelector("a").getAttribute('href'),
-          label: item.querySelector("a").querySelector("h4").textContent.replace(/\n/g, "")
+          value: item.querySelector('a').getAttribute('href'),
+          label: item.querySelector('a').querySelector('h4').textContent.replace(/\n/g, ''),
         });
       });
     }
     return results;
-  })
-  // Disconnect the browser after its job is done.
+  }, selectors);
+
   await agent.disconnect();
-  return genreOptions
-  
-  // ...
+  return genreOptions;
 }

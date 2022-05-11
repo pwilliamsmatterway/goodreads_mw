@@ -13,9 +13,11 @@
     "@matterway/puppeteer-debug": "^2.1.7",
     "@matterway/puppeteer-for-chrome": "^5.0.0",
     "@matterway/skill-debugger": "^2.0.0",
+    "eslint": "^8.15.0",
     "lodash": "^4.17.21",
     "p-limit": "^4.0.0",
     "p-map": "^5.1.0",
+    "prettier": "^2.6.2",
     "puppeteer-core": "^10.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -33,7 +35,9 @@
     "marketplace-logout": "assistant-skill-scripts marketplace-logout",
     "publish-skill-only": "assistant-skill-scripts publish-skill-only",
     "publish-skill": "assistant-skill-scripts publish-skill",
-    "unpublish-skill": "assistant-skill-scripts unpublish-skill"
+    "unpublish-skill": "assistant-skill-scripts unpublish-skill",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "lint": "eslint"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.0",
